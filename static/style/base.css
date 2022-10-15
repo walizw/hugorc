@@ -35,6 +35,12 @@ header h1 span {
        font-style: italic;
 }
 
+body > nav {
+    flex-basis: content;
+    padding-right: 1vw;
+    min-width: 16em;
+}
+
 nav ul {
     display: flex;
     flex-direction: column;
