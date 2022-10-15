@@ -1,0 +1,34 @@
+#+title: Themes
+#+layout: page
+#+parent: development
+
+* Theme management
+
+The hugorc style that you see in all my websites, or any other website using
+hugorc is not the only style that hugorc can have, indeed, anyone can write its
+own theme to it, or switch between the ones that come by default with it.
+
+There are 4 default themes for hugorc:
+
+- *base*
+- *darkgreen*
+- *sicp*
+- *yotsubab*
+
+You can change the current active theme in the =config.yml= file, in the
+=params= section, there's a field called =theme= and there you can specify
+the name of a theme.
+
+A theme is loaded at =/style/{{.Site.Params.style}}.css=, for example, if
+=theme= is =darkgreen= the theme will be loaded at =/style/darkgreen.css=.
+
+** Creating your own hugorc theme
+
+To create your own theme, simply create a css file at =/static/style/= and load
+it specifying its name in the =config.yml= file, and that's it!
+
+You can now inspect the html code of the page to see how you'd style your page.
+If you create a theme for hugorc, and want it to come by default with it, so
+other people can use it out of the box, open an issue on the hugorc github repo
+(you can find it in the top-right corner.)
+

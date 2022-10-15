@@ -3,5 +3,7 @@
   children:
     - title: basics
       url: /development/basics
+    - title: themes
+      url: /development/themes
 - title: powered
   url: /powered
