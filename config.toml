@@ -1,4 +1,4 @@
-baseURL = 'https://lovelacec.org/'
+baseURL = 'https://rc.lovelacec.org/'
 languageCode = 'en-gb'
 title = 'hugorc'
 
