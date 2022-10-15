@@ -5,6 +5,7 @@ title = 'hugorc'
 [params]
 	desc = "A werc port to hugo"
 	author = "walizw"
+	theme = "darkgreen"
 
 [menu]
 [[menu.left]]
