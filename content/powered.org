@@ -1,0 +1,11 @@
+#+title: Powered
+#+layout: page
+
+Are you using hugorc in your website? Send it to me and I will gladly add it to
+this page :D
+
+You can send me your website [[https://github.com/walizw/hugorc][opening an issue on github]], sending it through
+[[mailto:yojan.bustamante@udea.edu.co][email]]. Don't forget to include the url of your site, its name, and a brief
+summary of it, for example: =https://example.org - A lot of coding stuff=.
+
+** Powered by hugorc

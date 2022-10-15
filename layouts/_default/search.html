@@ -1,0 +1,67 @@
+{{ partial "partials/head.html" . }}
+{{ partial "partials/header.html" . }}
+{{ partial "partials/sidebar.html" . }}
+
+<article>
+    <noscript>This page requires javascript to work D:</noscript>
+    <h1>Search results</h1>
+    <div id="results">
+	<!-- Reults will be injected here -->
+	This query didn't yield any result D:
+    </div>
+</article>
+
+<script src="https://unpkg.com/lunr/lunr.js"></script>
+
+<script>
+ window.store = {
+     {{ range .Site.Pages }}
+     "{{.Permalink}}": {
+	 "title": "{{.Title}}",
+	 "content": {{.Content | plainify}},
+	 "url": "{{.Permalink}}"
+     },
+     {{ end }}
+ }
+
+ const params = new URLSearchParams (window.location.search)
+ const query = params.get ("q")
+
+ const idx = lunr (function () {
+     this.ref ("id")
+     this.field ("title", {
+	 boost: 15
+     })
+     this.field ("content", {
+	 boost: 10
+     })
+
+     for (const key in window.store) {
+	 this.add ({
+	     id: key,
+	     title: window.store [key].title,
+	     content: window.store [key].content
+	 })
+     }
+ })
+
+ const results = idx.search (query)
+ const search_results = document.getElementById ("results")
+
+ if (results.length > 0)
+ {
+     let result_list = ""
+
+     for (const i in results) {
+	 const item = store [results [i].ref]
+	 result_list += `
+<li>
+<a href="${item.url}">${item.title}</a>
+</li>
+	 `
+     }
+
+     search_results.innerHTML = result_list
+ }
+</script>
+{{ partial "partials/footer.html" . }}

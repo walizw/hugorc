@@ -1,0 +1,30 @@
+<header>
+    <nav>
+	<div class="left">
+	    {{range .Site.Menus.left}}
+	    <a href="{{.URL}}">
+		{{.Name}}
+	    </a> |
+	    {{end}}
+	</div>
+
+	<div class="right">
+	    <span class="doNotDisplay">Related sites:</span>
+	    |
+	    {{range .Site.Menus.right}}
+	    <a href="{{.URL}}">
+		{{.Name}}
+	    </a> |
+	    {{end}}
+	</div>
+    </nav>
+
+    <h1>
+	<a href="/">
+	    {{.Site.Title}}
+	    <span id="headerSubTitle">
+		{{.Site.Params.desc}}
+	    </span>
+	</a>
+    </h1>
+</header>

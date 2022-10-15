@@ -1,0 +1,14 @@
+#+title: hugorc - A sane web anti-framework port to hugo
+#+layout: page
+
+* hugorc - A sane web anti-framework port to hugo
+
+hugorc is a simple and minimalistic theme for the hugo static CMS generator
+based on the werc antiframework.
+
+hugorc makes easy theme management, and publishing a very big amount of content
+very easily. In the [[/development][development]] section you will find a step by step guide on
+how to setup this theme in your new - or already existing - hugo websites, how
+to modify it, add content, manage themes and even writing your own.
+
+I really hope you like this, and don't forget to check [[http://werc.cat-v.org/][werc]] from cat-v as well.

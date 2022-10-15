@@ -1,0 +1,99 @@
+#+title: Basics
+#+layout: page
+#+parent: development
+
+* Getting started with hugorc
+
+There are a lot of things you can modify of your web:
+
+1. The left menu.
+2. The right menu.
+3. The sidebar.
+
+** The left menu
+
+The left menu is the one located on the top-left corner of your web, in the
+default one ([[https://rc.lovelacec.org/]]) is the one that has some of my other
+projects (quadword, hugorc, and probably a few more). To modify that menu go to
+=config.toml= and modify the =[[menu.left]]= section.
+
+It follows this design:
+
+#+BEGIN_SRC toml
+[[menu.left]]
+  identifier = "menu-identifier"
+  name = "menu name"
+  url = "menu url"
+  weight = "menu-weight"
+#+END_SRC
+
+The identifier must be an =unique= name that's assigned to a specific item of
+the menu, the name is well... the name :p, the url is the page where it will
+take once someone clicks it, and weight determines the order in which the items
+of the menu will be displayed, to a lower weight, a lower order in the menu.
+
+For example:
+
+#+BEGIN_SRC toml
+[[menu.left]]
+  identifier = "quadword"
+  name = "quadword"
+  url = "https://lovelacec.org"
+  weight = -100
+#+END_SRC
+
+*Note that the identifier and the name doesn't have to be the same.*
+
+** The right menu
+
+The right menu is the one in the top right corner, this one is the same as the
+left menu, it is stored in =config.toml=, you just have to modify or add the
+items of the =[[menu.right]]= section.
+
+** The sidebar
+
+All the elements of the sidebar are stored in the =data/sidebar.yml= file (you
+can change this file if you don't want to use yaml and would prefer to use JSON
+or toml instead), it follows this design:
+
+#+BEGIN_SRC yml
+  - title: an element
+    url: /an-element
+#+END_SRC
+
+And it will be now displayed in the sidebar.
+
+An item can have children, you just have to add the =children= key to it, and
+the exact same design for the children elements:
+
+#+BEGIN_SRC yml
+  - title: an element
+    url: /an-element
+    children:
+      - title: a child element
+        url: /an-element/child
+#+END_SRC
+
+And that's how you update the sidebar :D
+
+* Adding entries
+
+/You can add entries in either org or markdown, the examples shown here will be
+written in org mode./
+
+To write an entry, just create either an =.org= or =.md= file in =content/=. It
+must have two (or three) metadata items:
+
+- title: The name of the page
+- layout: The layout it will be using (it should always be page)
+- parent: If this is the child of an element of the sidebar
+
+For example, let's suppose you have a page called "development.org". That page's
+=title= is =Development= and the sidebar has a development item, it will
+automatically update the sidebar in that page so it shows the current page we
+are in, and if that sidebar item has children, they will be displayed now.
+
+But if we have a "basics.org" page, that is the child of an item of the sidebar
+=development= we must provide a =parent= metadata item, whose value will be
+=development= so the children are shown as well, and if the sidebar has an item
+=basics= it will be updated as well.

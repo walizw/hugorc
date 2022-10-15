@@ -1,0 +1,53 @@
+#+title: Development
+#+layout: page
+
+* Using hugorc
+
+There are two ways to install hugorc, you can start your website on top of it,
+or add it to your already existant website.
+
+** Creating your website with hugorc
+
+If you don't already have a website, just clone the repository of hugorc:
+
+#+BEGIN_SRC bash
+  git clone https://github.com/walizw/hugorc
+#+END_SRC
+
+Delete all the content that comes by default:
+
+#+BEGIN_SRC bash
+  cd hugorc
+  rm -Rf content/*
+  rm data/sidebar.yml
+#+END_SRC
+
+And now you should have a blank hugo website using hugorc.
+
+** Adding hugorc to your website
+
+hugorc is not designed to be added as a theme, so you'd have to create a backup
+of the layouts of your site (if there are some) and its data:
+
+#+BEGIN_SRC bash
+  mv layouts layouts.bak
+  mv data data.bak
+  mv static static.bak
+#+END_SRC
+
+Clone the hugorc repository anywhere:
+
+#+BEGIN_SRC bash
+  git clone https://github.com/walizw/hugorc
+#+END_SRC
+
+And move its content so it's used by hugo:
+
+#+BEGIN_SRC bash
+  mv hugorc/layouts/* layouts
+  mv hugorc/static/style static
+#+END_SRC
+
+And that should be it, you now should have a website that uses the hugorc
+template. Now what you have to do, is to modify and start writing content to
+it. Check => basics= to learn how to do so.

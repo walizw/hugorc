@@ -1,0 +1,40 @@
+<nav id="side-bar">
+    <div>
+	<ul>
+	    {{$title := lower .Title}}
+	    {{$parent := .Params.parent}}
+	    {{range .Site.Data.sidebar}}
+
+	    {{$active := false}}
+	    {{$has_children := false}}
+
+	    {{if (ne .children nil)}}
+	    {{$has_children = true}}
+	    {{end}}
+	    
+	    {{if (or (eq $title .title) (and (ne $parent nil) (eq $parent .title)))}}
+	    {{$active = true}}
+	    {{else}}
+	    {{$active = false}}
+	    {{end}}
+	    <li>
+		<a href="{{.url}}">
+		    {{if (eq $title .title)}}&raquo;{{else}}&rsaquo;{{end}} {{.title}}{{if $has_children}}/{{end}}
+		</a>
+	    </li>
+
+	    {{if $active}}
+	    <li>
+		<ul>
+		    {{range .children}}
+		    <a href="{{.url}}">
+			{{if (eq $title .title)}}&raquo;{{else}}&rsaquo;{{end}} {{.title}}
+		    </a>
+		    {{end}}
+		</ul>
+	    </li>
+	    {{end}}
+	    {{end}}
+	</ul>
+    </div>
+</nav>
