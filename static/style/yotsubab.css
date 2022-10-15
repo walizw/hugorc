@@ -351,6 +351,8 @@ p a{
 }
 figure {color:black;}
 
-code {color:black;}
+code {color:inherit;}
 
 li{color:black;}
+
+.highlight{color:#fff;}

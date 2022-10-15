@@ -1,9 +1,9 @@
 - title: development
-  url: /development
+  url: /development/
   children:
     - title: basics
-      url: /development/basics
+      url: /development/basics/
     - title: themes
-      url: /development/themes
+      url: /development/themes/
 - title: powered
-  url: /powered
+  url: /powered/

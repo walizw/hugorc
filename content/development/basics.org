@@ -58,7 +58,7 @@ or toml instead), it follows this design:
 
 #+BEGIN_SRC yml
   - title: an element
-    url: /an-element
+    url: /an-element/
 #+END_SRC
 
 And it will be now displayed in the sidebar.
@@ -68,10 +68,10 @@ the exact same design for the children elements:
 
 #+BEGIN_SRC yml
   - title: an element
-    url: /an-element
+    url: /an-element/
     children:
       - title: a child element
-        url: /an-element/child
+        url: /an-element/child/
 #+END_SRC
 
 And that's how you update the sidebar :D
@@ -86,14 +86,4 @@ must have two (or three) metadata items:
 
 - title: The name of the page
 - layout: The layout it will be using (it should always be page)
-- parent: If this is the child of an element of the sidebar
-
-For example, let's suppose you have a page called "development.org". That page's
-=title= is =Development= and the sidebar has a development item, it will
-automatically update the sidebar in that page so it shows the current page we
-are in, and if that sidebar item has children, they will be displayed now.
-
-But if we have a "basics.org" page, that is the child of an item of the sidebar
-=development= we must provide a =parent= metadata item, whose value will be
-=development= so the children are shown as well, and if the sidebar has an item
-=basics= it will be updated as well.
+- parent: If this is the child of an element of the sidebar, if so, its name.
